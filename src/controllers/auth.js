@@ -1,5 +1,5 @@
 const express = require('express');
-
+const bodyparser = require('body-parser')
 const bcrypt = require('bcrypt');
 
 const router = express.Router();
@@ -15,18 +15,15 @@ router.get('/sign-in', (req, res) => {
 });
 
 router.get('/sign-up', async (req, res) => {
+  const {email,password} = req.body;
 
-  const email = 'mohamedschof@gmail.com'
-  const password = '123456'
+  const account = await Account.findOne({where:{email:email}})
+  if (account) return res.JSON('Account already exists');
 
   const hash = bcrypt.hashSync(password, saltRounds);
+  const newAccount = await Account.create({email,password: hash});
 
-  const result = await Account.create({
-    email,
-    password: hash
-  });
-
-  return res.json(result);
+  return res.json({newAccount});
 });
 
 module.exports = router;

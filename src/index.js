@@ -1,11 +1,12 @@
 const express = require('express');
-
 const db = require('./models')
 
 const authControllers = require('./controllers/auth');
 
 const app = express();
 
+app.use(express.json());
+app.use(express.urlencoded({xtended: false}));
 app.use('/auth', authControllers);
 
 app.get('/', (req, res) => {
