@@ -1,5 +1,8 @@
 'use strict';
-
+const express = require('express')
+const app = express();
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 const fs = require('fs');
 const path = require('path');
 const Sequelize = require('sequelize');
