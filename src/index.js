@@ -1,15 +1,16 @@
 const express = require('express');
+const authControllers = require('./controllers/auth');
+const app = express();
 const db = require('./models');
 const response = require('./middlewares/response');
-const authControllers = require('./controllers/auth');
-const bodyParser = require('body-parser')
 
-const app = express();
 
-app.use(response);
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(bodyParser.json())
+
+
+app.use(response);
 
 app.use('/auth', authControllers);
 
