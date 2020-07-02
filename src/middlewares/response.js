@@ -4,11 +4,14 @@ const STATUS_CODE_UNAUTHORIZED = 401;
 const STATUS_CODE_NOT_FOUND = 404;
 const STATUS_CODE_SERVER_ERROR = 500;
 const STATUS_CODE_OK = 200;
+const {getMessage} = require('../helpers/messages')
+const messages = require('../config/messages.json')
+
 
 const jsonOK = function(data, message, metadata) {
   const status = STATUS_CODE_OK
   metadata = (metadata) ? metadata : {};
-  message = (message) ? message : 'Succesful request!';
+  message = (message) ? message : getMessage('response.json_ok');
 
   this.status(status);
   this.type(TYPE_JSON);
@@ -18,7 +21,7 @@ const jsonOK = function(data, message, metadata) {
 const jsonBadRequest = function(data, message, metadata) {
   const status = STATUS_CODE_BAD_REQUEST;
   metadata = (metadata) ? metadata : {};
-  message = (message) ? message : 'Bad request!';
+  message = (message) ? message : getMessage('response.json_bad_request');
 
   this.status(status);
   this.type(TYPE_JSON);
@@ -28,7 +31,7 @@ const jsonBadRequest = function(data, message, metadata) {
 const jsonUnauthorized = function(data, message, metadata) {
   const status = STATUS_CODE_UNAUTHORIZED;
   metadata = (metadata) ? metadata : {};
-  message = (message) ? message : 'Unauthorized. !';
+  message = (message) ? message : getMessage('response.json_unauthorized');
 
   this.status(status);
   this.type(TYPE_JSON);
@@ -38,7 +41,7 @@ const jsonUnauthorized = function(data, message, metadata) {
 const jsonNotFound = function(data, message, metadata) {
   const status = STATUS_CODE_NOT_FOUND;
   metadata = (metadata) ? metadata : {};
-  message = (message) ? message : 'Error 404 not found. !';
+  message = (message) ? message : getMessage('response.json_not_found');
 
   this.status(status);
   this.type(TYPE_JSON);
@@ -48,7 +51,7 @@ const jsonNotFound = function(data, message, metadata) {
 const jsonServerError = function(data, message, metadata) {
   const status = STATUS_CODE_SERVER_ERROR;
   metadata = (metadata) ? metadata : {};
-  message = (message) ? message : ' Server error. !';
+  message = (message) ? message : getMessage('response.json_server_error');
 
   this.status(status);
   this.type(TYPE_JSON);
