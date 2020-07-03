@@ -1,10 +1,11 @@
 const express = require('express');
-const authControllers = require('./controllers/auth');
-const app = express();
 const db = require('./models');
 const response = require('./middlewares/response');
 
+const authControllers = require('./controllers/auth');
+const linkControllers = require('./controllers/link');
 
+const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -13,6 +14,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(response);
 
 app.use('/auth', authControllers);
+app.use('/link', linkControllers);
 
 app.get('/', (req, res) => {
   return res.json('API running...')
