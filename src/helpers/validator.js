@@ -9,7 +9,6 @@ const getValidatorError = (error, messagePath) => {
     const key = detail.context.key;
     const type = detail.type;
     const path = `${messagePath}.${key}.${type}`;
-    console.log(path);
     
     errorMessages[key] = getMessage(path) || message;     
   });
