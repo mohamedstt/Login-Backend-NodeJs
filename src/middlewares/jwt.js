@@ -8,9 +8,9 @@ const checkJwt = (req, res, next) => {
 
   const isExcluded = !!excludedPaths.find((p) => p.startsWith(path));
   if (isExcluded) return next()
-  
-  console.log(path , isExcluded);
-  
+
+  console.log(path, isExcluded);
+
   let token = req.headers['authorization'];
   token = token ? token.slice(7, token.length) : null;
   if (!token) {

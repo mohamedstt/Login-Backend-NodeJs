@@ -8,11 +8,16 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNULL: false,
     },
+    jwtVersion: {
+      type: DataTypes.INTEGER,
+      allowNULL: false,
+      defaultValue: 0,
+    },
   });
 
 
   Account.associate = (models) => {
-    Account.hasMany(models.Link, {foreignKey: 'accountId'})
+    Account.hasMany(models.Link, { foreignKey: 'accountId' })
   }
 
   Account.prototype.toJSON = function () {
