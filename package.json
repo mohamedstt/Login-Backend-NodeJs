@@ -15,7 +15,7 @@
     "nodemon": "^2.0.4",
     "sequelize": "^5.21.10"
   },
-  "devDependencies": {"git@github.com:mohamedstt/Login-Backend.git"},
+  "devDependencies": {},
   "scripts": {
     "start": "nodemon src/index.js"
   },
