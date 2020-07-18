@@ -1,7 +1,0 @@
-{
-  "editor.defaultFormatter": "vscode.emmet",
-  "eslint.format.enable": true,
-  "[javascript]": {
-    "editor.defaultFormatter": "remimarsal.prettier-now"
-  }
-}
