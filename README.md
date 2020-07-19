@@ -7,7 +7,9 @@ account authentication using JWT token.
 <p align="center">
   <img src="./img/cadastroTela.png" alt="Cadastro">
   <img src="./img/LoginTela.png" alt="Login">
-  <img src="./img/PosLogin.png" alt="Interface">
+  <img src="./img/createLink.png" alt="criando">
+  <img src="./img/deleteLink.png" alt="deletando">
+  
   
 </p>
 
